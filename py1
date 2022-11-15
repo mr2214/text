@@ -1,0 +1,103 @@
+import os
+
+os.system("")
+
+# Group of Different functions for different styles
+class style():
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    UNDERLINE = '\033[4m'
+    RESET = '\033[0m'
+text = ("There are basically two types of auctions: ascending-bid auctions and descending-bid auctions. Ascending-bid auctions start out with a low bid for an object. The price of the object is gradually raised until only one bidder remains. By contrast, descending-bid auctions start out with a high bid and the price is progressively lowered until a customer expresses a willingness to purchase the object. Both procedures have a number of variants. For example, in some types of auctions a professional auctioneer declares the suggested bids. In other types of auctions, however, the customers make their own bids. Another variant, used at places such as eBay or Yahoo Auction, is called a \"buyout option\". A high price for an item is declared. Anyone willing to pay that price is guaranteed a purchase. This variant seems to appeal consumers who dislike uncertainty: for a fixed price they are guaranteed an object. \"Buyout options\" are most commonly used if the seller has a stock of several copies of the same item.\
+Both ascending-bid and descending-bid auctions can be conducted in either open or closed formats. In open formats,all participants know what exactly how much an object is going for. For example, at many Japanese fish markets, wholesalers gather around the fish to be purchased and raise their hands as the auctioneer names progressively higher prices. In closed auctions, participants are unaware of how much other participants are willing to pay for an object. For example, a case in which participants used sealed envelopes to place their bids on a piece of real estate represents this type of auction. Though open auctions generally yield higher prices, closed formats are sometimes preferred in situations in which the privacy of the prospective buyers is considered paramount or the need to document precisely how much each party bid is high.")
+
+text_2 = "I promised to look after a friends cat for the week. My place has a glass atrium that goes through two levels, I have put the cat in there with enough food and water to last the week. I am looking forward to the end of the week. It is just sitting there glaring at me, it doesn't do anything else. I can tell it would like to kill me. If I knew I could get a perfect replacement cat, I would kill this one now and replace it Friday afternoon. As we sit here glaring at each other I have already worked out several ways to kill it.                                               The simplest would be to drop heavy items on it from the upstairs bedroom though I have enough basic engineering knowledge to assume that I could build some form of 'spear like' projectile device from parts in the downstairs shed. If the atrium was waterproof, the most entertaining would be to flood it with water. It wouldn't have to be that deep, just deeper than the cat.                                   I don't know how long cats can swim but I doubt it would be for a whole week. If it kept the swimming up for too long I could always try dropping things on it as well. I have read that drowning is one of the most peaceful ways to die so really it would be a win win situation for me and the cat I think."
+
+text_3 = "Most houses use energy - lots of it. We use energy for heating, lighting, for running our household appliances - TV's, washing machines, fridges, and so on. In winter time, most houses use dozens of kilowatts of electricity every day, or the equivalent in gas.                            The house in the photo, on the other hand, uses virtually nothing: most of the energy that it uses comes straight from the sun, the wind or the ground. This is an experimental house at the University of Nottingham, and it could be the kind of house that most people are living in fifty years from now.                                                 During the daytime, it is rarely necessary to turn on an electric light,  even in rooms without windows. Sunlight, or daylight, is piped through the house, into each room, through special high-reflection aluminium tubes. You can see how well they reflect light, by looking at the reflections of the faces in the picture!"
+
+list_of_text = [text, text_2, text_3]
+a = 1
+test = 1
+playtest = "y"
+final_dictionary = {
+  
+}
+print("this code will give the number of a letters(lower case and upper cases) in  a passage of text")
+print("10 incorrect entries will cause progam to stop")
+while playtest == "y": # correct input
+  playtest = str(input(style.RESET + "do you wish to run the program(y/n):"))
+  while test < 10 and playtest != "y":   #incorrect
+      if playtest == "n":
+        print("game over")
+        break     
+      else:
+         print("wrong input, please try again")
+         playtest = str(input("do you wish to run the program(y/n):"))
+         test = test + 1
+  if test == 10: #condition
+    print("game over")
+    break
+  if playtest == "n":  #user choice
+   break
+  text_choice = input("pick a integer between 0 and 2:")
+  while (text_choice.isdigit() == False):
+    print("wrong input, please try again")
+    text_choice = input("pick a integer between 0 and 2:")
+    while text_choice.isdigit() == False and (test < 10):
+      print("wrong input, please try again")
+      text_choice = input("pick a integer between 0 and 2:")
+      test = test + 1
+  while text_choice.isdigit() == True and test < 10:
+    text_choice = int(text_choice)
+    if ((text_choice <= 2) and (text_choice >= 0)) and (test < 10):
+      text_choice = str(text_choice)
+      break
+    else:
+         test = test + 1 
+         print("wrong input, please try again")
+         text_choice = input("pick a integer between 0 and 2:")
+    if test == 10:
+     print("game over")
+     break  
+  text_choice = int(text_choice)
+  newletter = str(input("write a letter:"))
+  while ((newletter.isalpha() == False) or ((len(newletter)) != 1))  and (test < 10):
+      print("wrong input, please try again")
+      newletter = str(input("write a letter:"))
+      test = test + 1
+  if test == 10:
+    print("game over")
+    break
+  def countTfunction_2(script,count):
+    for i in script:
+      if i == newletter or i == newletter.upper() :
+        count = count + 1
+    return count
+  count = countTfunction_2(list_of_text[text_choice],0)
+  class All_info:
+    def give_info(self): 
+      print(style.YELLOW + "number of times letter appeared in text is " + str(self.count))
+      print(style.RED + "your chosen text is:\n" + self.text)
+      print(style.GREEN + "your chosen letter is: " + self.letter)
+  info = All_info()
+  info.count = count
+  info.text = list_of_text[text_choice]
+  info.letter = newletter
+  info.give_info()
+  countTfunction_2(list_of_text[text_choice],0)
+  dictionary_of_restuls = {
+
+  }
+  dictionary_of_restuls["round" +  str(a)] = "number of times" + " " + newletter + " appears in text " + "=" + " " + str(countTfunction_2(list_of_text[text_choice],0))
+  final_dictionary[a] = dictionary_of_restuls
+  style.RESET
+  print(dictionary_of_restuls)
+  a = a + 1
+print("all results from programm you ran")
+print(final_dictionary)
